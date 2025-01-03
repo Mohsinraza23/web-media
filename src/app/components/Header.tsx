@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import { useState } from "react"
 import Image from 'next/image'
-import logo from '../../../Public/logo.png'
+import logo from '../../../public/logo.png'
 
 
 
