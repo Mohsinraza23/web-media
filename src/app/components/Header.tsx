@@ -2,8 +2,9 @@
 import Link from 'next/link'
 import React from 'react'
 import { useState } from "react"
-import logo from '../../../Public/logo.png'
 import Image from 'next/image'
+import logo from '../../../Public/logo.png'
+
 
 
 export default function Header() {
