@@ -22,24 +22,18 @@ export default function AboutPage() {
     <div className="min-h-screen bg-black text-white">
         
       {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <Image
-          src={welcome}
-          alt="Agency team working"
-          fill
-          className="object-cover mt-20"
-          priority
-        />
-        {/* <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-        <div className="relative z-10 text-center px-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#4169E1] to-[#9370DB] inline-block text-transparent bg-clip-text">
-           
-          </h1>
-          <p className="text-xl md:text-2xl max-w-2xl mx-auto">
-         
-          </p> */}
-        {/* </div> */}
-      </section>
+<section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+  <div className="absolute inset-0">
+    <Image
+      src={welcome}
+      alt="Agency team working"
+      layout="fill"
+      className="object-cover object-center w-full h-full"
+      priority
+    />
+  </div>
+</section>
+
 
       {/* Stats Section */}
       <section className="py-20 px-4">
@@ -119,37 +113,57 @@ export default function AboutPage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-[#4169E1] to-[#9370DB] inline-block text-transparent bg-clip-text">
-            Our Process
-          </h2>
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#4169E1] to-[#9370DB]"></div>
-            <div className="space-y-12">
-              {[
-                { step: 1, title: "Discovery", description: "Understanding your needs and objectives" },
-                { step: 2, title: "Strategy", description: "Developing a comprehensive plan of action" },
-                { step: 3, title: "Design", description: "Creating engaging and intuitive solutions" },
-                { step: 4, title: "Development", description: "Building with cutting-edge technology" }
-              ].map((item, index) => (
-                <div key={index} className={`flex items-center gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                  <div className={`flex-1 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                    <div className="bg-[#0A0F1C] p-6 rounded-lg inline-block">
-                      <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                      <p className="text-gray-400">{item.description}</p>
-                    </div>
-                  </div>
-                  <div className="relative flex items-center justify-center w-12 h-12 rounded-full bg-[#4169E1] z-10">
-                    {item.step}
-                  </div>
-                  <div className="flex-1"></div>
-                </div>
-              ))}
+<section className="py-20 px-4">
+  <div className="max-w-6xl mx-auto">
+    <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-[#4169E1] to-[#9370DB] inline-block text-transparent bg-clip-text">
+      Our Process
+    </h2>
+    <div className="relative">
+      {/* Snake pattern line */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-[#4169E1] to-[#9370DB] h-full">
+        {[...Array(4)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-4 h-4 bg-[#4169E1] rounded-full"
+            style={{
+              top: `${i * 150}px`,
+              transform: i % 2 === 0 ? "translateX(-50%)" : "translateX(50%)",
+            }}
+          ></div>
+        ))}
+      </div>
+
+      {/* Process Items */}
+      <div className="space-y-16">
+        {[
+          { step: 1, title: "Discovery", description: "Understanding your needs and objectives" },
+          { step: 2, title: "Strategy", description: "Developing a comprehensive plan of action" },
+          { step: 3, title: "Design", description: "Creating engaging and intuitive solutions" },
+          { step: 4, title: "Development", description: "Building with cutting-edge technology" },
+        ].map((item, index) => (
+          <div
+            key={index}
+            className={`flex items-center gap-8 ${
+              index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+            }`}
+          >
+            <div className={`flex-1 ${index % 2 === 0 ? "text-right" : "text-left"}`}>
+              <div className="bg-[#0A0F1C] p-6 rounded-lg inline-block">
+                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <p className="text-gray-400">{item.description}</p>
+              </div>
             </div>
+            <div className="relative flex items-center justify-center w-12 h-12 rounded-full bg-[#4169E1] z-10 text-white font-bold">
+              {item.step}
+            </div>
+            <div className="flex-1"></div>
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Why Choose Us Section */}
       <section className="py-20 px-4 bg-[#0A0F1C]">
