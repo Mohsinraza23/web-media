@@ -58,7 +58,9 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-purple-300">Email</h3>
-                  <p className="text-gray-400">webandmediaagency007@gmail.com</p>
+                  <p className="text-gray-400 break-words">
+                    webandmediaagency007@gmail.com
+                  </p>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
