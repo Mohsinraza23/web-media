@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import welcome from "../../../public/welcome.jpg";
 
 export default function AboutPage() {
   const stats = [
@@ -149,12 +148,11 @@ export default function AboutPage() {
                   className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
                   style={{ opacity: index === 0 ? 1 : 0 }}
                 >
-                  import Image from "next/image";
                   <Image
-                    src="/web.png" // Path to the image in the public folder
-                    alt="Your Alt Text"
-                    layout="fill" // Makes the image fill its container
-                    objectFit="cover" // Ensures the image covers the container while maintaining aspect ratio
+                    src="/web.png"
+                    alt={image.alt}
+                    layout="fill"
+                    objectFit="cover"
                     className="rounded-lg"
                   />
                 </div>

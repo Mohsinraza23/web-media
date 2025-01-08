@@ -1,4 +1,4 @@
-import Link from "next/link";
+
 
 const courses = [
   {
@@ -68,3 +68,4 @@ export default function CoursesPage() {
     </div>
   );
 }
+
