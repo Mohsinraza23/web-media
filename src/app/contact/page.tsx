@@ -35,7 +35,7 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Contact Information Card */}
           <div className="bg-[#242937] rounded-xl p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
             <div className="space-y-8">
