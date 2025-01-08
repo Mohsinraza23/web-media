@@ -10,16 +10,22 @@ export default function ContactPage() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
-    const formData = new FormData(e.currentTarget)
-    const result = await submitContactForm(formData)
 
-    setIsSubmitting(false)
-    setSubmitMessage(result.message)
+    try {
+      const formData = new FormData(e.currentTarget)
+      const result = await submitContactForm(formData)
 
-    if (result.success) {
-      (e.target as HTMLFormElement).reset()
-      setTimeout(() => setSubmitMessage(''), 3000)
+      setIsSubmitting(false)
+      setSubmitMessage(result.message)
+
+      if (result.success) {
+        (e.target as HTMLFormElement).reset()
+        setTimeout(() => setSubmitMessage(''), 3000)
+      }
+    } catch (error) {
+      setIsSubmitting(false)
+      setSubmitMessage('Something went wrong. Please try again.')
+      console.error(error)
     }
   }
 
@@ -36,9 +42,10 @@ export default function ContactPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-          {/* Contact Information Card */}
-          <div className="bg-[#242937] rounded-xl p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
+          {/* Contact Information */}
+          <div className="bg-[#242937] rounded-xl p-8">
             <div className="space-y-8">
+              {/* Phone */}
               <div className="flex items-center space-x-4">
                 <div className="bg-purple-600 p-3 rounded-full">
                   <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -50,6 +57,8 @@ export default function ContactPage() {
                   <p className="text-gray-400">+92 345 2615590</p>
                 </div>
               </div>
+
+              {/* Email */}
               <div className="flex items-center space-x-4">
                 <div className="bg-purple-600 p-3 rounded-full">
                   <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -58,11 +67,11 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-purple-300">Email</h3>
-                  <p className="text-gray-400 break-words">
-                    webandmediaagency007@gmail.com
-                  </p>
+                  <p className="text-gray-400 break-all">webandmediaagency007@gmail.com</p>
                 </div>
               </div>
+
+              {/* Location */}
               <div className="flex items-center space-x-4">
                 <div className="bg-purple-600 p-3 rounded-full">
                   <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -78,46 +87,43 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Contact Form Card */}
-          <div className="bg-[#242937] rounded-xl p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
+          {/* Contact Form */}
+          <div className="bg-[#242937] rounded-xl p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-purple-300 mb-1">Name</label>
+                <label htmlFor="name" className="block text-sm font-medium text-purple-300">Name</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   required
-                  className="w-full px-4 py-2 bg-[#1a1f2b] border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-400"
-                  placeholder="Your name"
+                  className="w-full px-4 py-2 bg-[#1a1f2b] border border-gray-600 rounded-lg text-white placeholder-gray-400"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-purple-300 mb-1">Email</label>
+                <label htmlFor="email" className="block text-sm font-medium text-purple-300">Email</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   required
-                  className="w-full px-4 py-2 bg-[#1a1f2b] border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-400"
-                  placeholder="Your email"
+                  className="w-full px-4 py-2 bg-[#1a1f2b] border border-gray-600 rounded-lg text-white placeholder-gray-400"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-purple-300 mb-1">Message</label>
+                <label htmlFor="message" className="block text-sm font-medium text-purple-300">Message</label>
                 <textarea
                   id="message"
                   name="message"
                   required
                   rows={4}
-                  className="w-full px-4 py-2 bg-[#1a1f2b] border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-400"
-                  placeholder="Your message"
+                  className="w-full px-4 py-2 bg-[#1a1f2b] border border-gray-600 rounded-lg text-white placeholder-gray-400"
                 ></textarea>
               </div>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-purple-600 text-white py-2 px-6 rounded-full font-semibold hover:bg-purple-700 transition-colors duration-300 disabled:opacity-50"
+                className="w-full bg-purple-600 text-white py-2 rounded-full font-semibold hover:bg-purple-700"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
