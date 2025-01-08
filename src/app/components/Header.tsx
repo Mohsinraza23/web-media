@@ -10,12 +10,12 @@ export default function Header() {
 
   return (
     <div>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-xl border-b border-white/5">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#1a1f2b] border-b border-purple-500/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <Link href="/" className="relative group">
-              <div className="absolute -inset-1 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-200"></div>
+              <div className="absolute -inset-1 rounded-lg "></div>
               <span className="relative">
                 <Image src={logo} alt="logo" className="w-40" />
               </span>
@@ -23,21 +23,21 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              {['Home', 'About', 'Team', 'Project', 'Contact'].map((item) => (
+              {['Home', 'About', 'Team', 'Project', 'Courses', 'Contact'].map((item) => (
                 <Link
                   key={item}
                   href={`/${item.toLowerCase()}`}
-                  className="relative text-gray-300 hover:text-white transition-colors group font-semibold"
+                  className="relative text-gray-400 hover:text-purple-300 transition-colors group font-semibold"
                 >
                   <span>{item}</span>
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                 </Link>
               ))}
             </nav>
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden flex items-center justify-center w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none"
+              className="md:hidden flex items-center justify-center w-10 h-10 bg-purple-600 text-white rounded-lg shadow-lg hover:bg-purple-700 transition-all duration-300 focus:outline-none"
               onClick={() => setIsOpen(!isOpen)}
               aria-expanded={isOpen}
               aria-label="Toggle menu"
@@ -77,15 +77,15 @@ export default function Header() {
             }`}
           >
             <nav className="flex flex-col space-y-4 py-6">
-              {['Home', 'About', 'Team', 'Project', 'Contact'].map((item) => (
+              {['Home', 'About', 'Team', 'Project', 'Courses', 'Contact'].map((item) => (
                 <Link
                   key={item}
                   href={`/${item.toLowerCase()}`}
-                  className="relative text-white hover:text-gray-300 transition-colors group font-semibold py-2 px-4"
+                  className="relative text-gray-400 hover:text-purple-300 transition-colors group font-semibold py-2 px-4"
                   onClick={() => setIsOpen(false)}
                 >
                   <span className="relative z-10">{item}</span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                  <span className="absolute inset-0 bg-purple-600/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                 </Link>
               ))}
             </nav>
@@ -95,4 +95,6 @@ export default function Header() {
     </div>
   );
 }
+
+
 
