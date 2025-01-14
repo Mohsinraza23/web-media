@@ -3,13 +3,14 @@ import Link from "next/link";
 import { Code, Palette, Rocket, Users, Zap, Star, Megaphone, Video } from "lucide-react";
 import logo from "../../../public/logo.png";
 
-const services = [
+const services =[
   {
     title: "Web Development",
     description: "Custom websites tailored to your business needs, built with the latest technologies.",
     icon: Code,
     duration: "2-8 weeks",
     level: "Customized",
+    link: 'https://docs.google.com/forms/d/e/1FAIpQLSc4qe1fBKfBfRi6zMUpJQOsKLoPdRKxlWAWUJGg1OfZdxLQQQ/viewform'
   },
   {
     title: "Social Media Management",
@@ -17,6 +18,7 @@ const services = [
     icon: Users,
     duration: "Ongoing",
     level: "All levels",
+    link: 'https://forms.gle/zYUv1FrLdjUcutb79'
   },
   {
     title: "SEO Optimization",
@@ -24,13 +26,15 @@ const services = [
     icon: Rocket,
     duration: "3-6 months",
     level: "Intermediate",
+    link: "https://forms.gle/8nAQZnwYV3FxMGNG7"
   },
   {
-    title: "Content Creation",
+    title: "Graphic Designing",
     description: "Compelling content that resonates with your audience and drives engagement.",
     icon: Palette,
     duration: "Weekly/Monthly",
     level: "All levels",
+    link: 'https://forms.gle/WCV6YegM8nBDqSTn6'
   },
   {
     title: "Digital Marketing",
@@ -38,6 +42,7 @@ const services = [
     icon: Megaphone,
     duration: "3-6 months",
     level: "All levels",
+    link: 'https://forms.gle/zYUv1FrLdjUcutb79'
   },
   {
     title: "Video Editing",
@@ -45,6 +50,7 @@ const services = [
     icon: Video,
     duration: "1-4 weeks",
     level: "Customized",
+    link: 'https://forms.gle/Ama9MHnRQg9HMSs98'
   },
 ];
 
@@ -97,7 +103,7 @@ export default function Home() {
                     <span>{service.level}</span>
                   </div>
                   <Link
-                    href={`/services/${index + 1}`}
+                    href={service.link}
                     className="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300"
                   >
                     Learn More
@@ -198,3 +204,12 @@ export default function Home() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
